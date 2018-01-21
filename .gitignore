@@ -1,0 +1,21 @@
+# Bin
+node_modules/
+
+# Build
+dist/
+.cache/
+
+# Log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# WebExtension key files and output
+dist.pem
+dist.crx
+
+# IDE
+.vscode/
+
+# Garbage
+.DS_Store
