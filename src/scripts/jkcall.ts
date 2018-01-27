@@ -8,4 +8,4 @@ class Jkcall {
     console.log(this.name + ', I backed!')    
   }
 }
-export default Jkcall;
+export default Jkcall
