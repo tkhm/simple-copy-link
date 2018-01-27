@@ -4,8 +4,8 @@
   "description": "very simple copy link web extension",
   "main": "src/app.js",
   "scripts": {
-    "start": "parcel src/index.html",
-    "build": "parcel build --public-url ./ src/index.html && cp manifest.json dist/ && cp icon.png dist/",
+    "build": "parcel build --public-url ./ --no-minify src/app.js && cp manifest.json dist/ && cp icon.png dist/",
+    "release": "parcel build --public-url ./ src/app.js && cp manifest.json dist/ && cp icon.png dist/",
     "lint": "tslint src/scripts/*",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
