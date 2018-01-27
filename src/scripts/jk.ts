@@ -1,15 +1,15 @@
-import Jkcall from "./jkcall";
+import Jkcall from "./jkcall"
 
 class Jk {
   constructor() {
-    console.log("jk Constructor is called.");
-    const jkcall = new Jkcall();
-    jkcall.echoName();
+    console.log("jk Constructor is called.")
+    const jkcall = new Jkcall()
+    jkcall.echoName()
   }
 
-  public reportProgress(progress: int): void {
+  public reportProgress(progress: number): void {
     console.log('progress: ' + progress + ' byte!')
   }
 }
 
-export default Jk;
+export default Jk

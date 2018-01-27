@@ -3,9 +3,9 @@
 ```
 yarn # install modules
 
-yarn start # bundle and start local dev server
+yarn build # bundle and copy for devel
 
-yarn build # bundle and copy for release files 
+yarn release # bundle and copy for release with lint
 
 yarn lint # call tslint
 ```
@@ -16,7 +16,6 @@ yarn lint # call tslint
 .
 ├── dist # generated
 │   ├── icon.png
-│   ├── index.html
 │   ├── manifest.json
 │   └── simple-copy-link.js
 ├── icon.png # webextension icon
@@ -26,7 +25,6 @@ yarn lint # call tslint
 ├── README.md
 ├── src # core contents
 │   ├── app.js # entry point
-│   ├── index.html # call entry point and popup menu
 │   ├── scripts
 │   └── styles
 ├── tslint.json # lint config
