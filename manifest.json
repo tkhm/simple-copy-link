@@ -1,7 +1,7 @@
 {
-  "name": "Context Menus Sample (with Event Page)",
-  "description": "Shows some of the features of the Context Menus API using an event page",
-  "version": "0.7",
+  "name": "SLink - Simple copy link",
+  "description": "Copy page link and title, so simple!",
+  "version": "0.1",
   "permissions": ["contextMenus"],
   "background": {
     "persistent": false,
