@@ -11,16 +11,15 @@ class Jk {
     console.log('progress: ' + progress + ' byte!')
   }
 
-  public copyStringToClipboard(string){
+  public copyStringToClipboard(text: string){
     function handler (event){
-      event.clipboardData.setData('text/plain', string);
-      event.preventDefault();
-      document.removeEventListener('copy', handler, true);
+      event.clipboardData.setData('text/plain', text)
+      event.preventDefault()
+      document.removeEventListener('copy', handler, true)
     }
   
-    document.addEventListener('copy', handler, true);
-    document.execCommand('copy');
-    console.log(string);
+    document.addEventListener('copy', handler, true)
+    document.execCommand('copy')
   }
 }
 
