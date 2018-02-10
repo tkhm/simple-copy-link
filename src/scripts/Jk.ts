@@ -1,14 +1,16 @@
-import Jkcall from "./jkcall"
+import JkCall from "./JkCall"
 
 class Jk {
+  private progressCount: number
   constructor() {
     console.log("jk Constructor is called.")
-    const jkcall = new Jkcall()
+    const jkcall = new JkCall()
     jkcall.echoName()
   }
 
   public reportProgress(progress: number): void {
-    console.log('progress: ' + progress + ' byte!')
+    
+    console.log('progress: ' + Math.ceil(progress * Math.random()) + ' byte!')
   }
 
   public copyStringToClipboard(text: string){
