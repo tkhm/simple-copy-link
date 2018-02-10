@@ -8,6 +8,12 @@ function onClickHandler(info, tab) {
   let jk = new Jk()
   jk.reportProgress(0)
 
+  if(info.menuItemId == "slink"){
+    console.log("slink clicked");
+    // var data_transfer = window.clipboardData.setData("text", "welcome to the world");
+    jk.copyStringToClipboard("Your opinion have just become mine.");
+  }
+  /*
   if (info.menuItemId == "radio1" || info.menuItemId == "radio2") {
     console.log("radio item " + info.menuItemId +
                 " was clicked (previous checked state was "  +
@@ -22,12 +28,16 @@ function onClickHandler(info, tab) {
     console.log("info: " + JSON.stringify(info))
     console.log("tab: " + JSON.stringify(tab))
   }
+  */
 }
-
 chrome.contextMenus.onClicked.addListener(onClickHandler)
 
 // Set up context menu tree at install time.
 chrome.runtime.onInstalled.addListener(function() {
+  // Create copy to clipboard menu.
+  chrome.contextMenus.create({"title": "Copy Title and Link", "id": "slink"});
+  
+  /*
   // Create one test item for each context type.
   var contexts = ["page","selection","link","editable","image","video",
                   "audio"]
@@ -46,7 +56,9 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.contextMenus.create(
       {"title": "Child 2", "parentId": "parent", "id": "child2"})
   console.log("parent child1 child2")
+  */
 
+  /*
   // Create some radio items.
   chrome.contextMenus.create({"title": "Radio 1", "type": "radio",
                               "id": "radio1"})
@@ -60,11 +72,13 @@ chrome.runtime.onInstalled.addListener(function() {
   chrome.contextMenus.create(
       {"title": "Checkbox2", "type": "checkbox", "id": "checkbox2"})
   console.log("checkbox1 checkbox2")
+  
 
   // Intentionally create an invalid item, to show off error checking in the
   // create callback.
   console.log("About to try creating an invalid item - an error about " +
       "duplicate item child1 should show up")
+  */
 
   //chrome.contextMenus.create({"title": "Oops", "id": "child1"}, function() {
   //  if (chrome.extension.lastError) {
