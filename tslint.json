@@ -26,7 +26,8 @@
         "semicolon": {
             "severity": "warning",
             "options": ["never"]
-        }
+        },
+        "no-implicit-dependencies": [true, "dev"]
     },
     "jsRules": {
         "max-line-length": {
