@@ -20,9 +20,11 @@
   },
   "homepage": "https://gitlab.com/pushmestudio/simple-copy-link#README",
   "devDependencies": {
+    "@types/chrome": "^0.0.59",
     "parcel-bundler": "^1.4.1",
     "tslint": "^5.9.1",
     "tslint-config-prettier": "^1.6.0",
     "typescript": "^2.6.2"
-  }
+  },
+  "dependencies": {}
 }
