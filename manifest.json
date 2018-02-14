@@ -19,11 +19,11 @@
   ],
   "background": {
     "persistent": false,
-    "scripts": ["simple-copy-link.js"]
+    "scripts": ["background.js"]
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["clipboard-sender.js"]
+    "js": ["content-scripts.js"]
   }],
   "manifest_version": 2
 }
