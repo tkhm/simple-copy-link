@@ -10,7 +10,6 @@ class ChromeContext {
     // Set up context menu tree at install time.
     chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink' })
     chrome.contextMenus.onClicked.addListener(this.onClickHandler)
-
   }
 
   // The onClicked callback function.
@@ -20,8 +19,8 @@ class ChromeContext {
 
     if (info.menuItemId === 'slink') {
       console.log('slink clicked')
-      chrome.tabs.sendMessage(tab.id, {"url": info.linkUrl})
-      // jk.copyStringToClipboard('Your opinion have just become mine.')
+      // send text to browser content message listener
+      chrome.tabs.sendMessage(tab.id, {"text": info.linkUrl})
     }
   }
 }
