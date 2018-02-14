@@ -5,8 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "lint": "tslint src/scripts/*",
-    "build": "parcel build --public-url ./ --no-minify src/app.js && cp manifest.json dist/ && cp icon*.png dist/",
-    "release": "yarn lint && parcel build --public-url ./ src/app.js && cp manifest.json dist/ && cp icon*.png dist/",
+    "build": "parcel build --public-url ./ --no-minify src/app.js && cp src/clipboard-sender.js dist/ && cp manifest.json dist/ && cp icon*.png dist/",
+    "release": "yarn lint && parcel build --public-url ./ src/app.js && cp src/clipboard-sender.js dist/ && cp manifest.json dist/ && cp icon*.png dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
