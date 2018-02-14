@@ -8,7 +8,8 @@ import { } from '@types/chrome'
 class ChromeContext {
   constructor() {
     // Set up context menu tree at install time.
-    chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink', 'contexts': ['all'] })
+    chrome.contextMenus.create({ 'title': 'Copy as Markdown', 'id': 'slink_md', 'contexts': ['all'] })
+    chrome.contextMenus.create({ 'title': 'Copy as Plaintext', 'id': 'slink_txt', 'contexts': ['all'] })
     chrome.contextMenus.onClicked.addListener(this.onClickHandler)
   }
 
@@ -17,9 +18,12 @@ class ChromeContext {
     const jk = new Jk()
     jk.reportProgress(64)
 
-    if (info.menuItemId === 'slink') {
-      console.log('slink clicked')
+    if (info.menuItemId === 'slink_md') {
       const titleAndUrl = '[' + tab.title + '](' + tab.url + ')'
+      // send text to browser content message listener
+      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
+    } else if (info.menuItemId === 'slink_txt') {
+      const titleAndUrl = tab.title + ' ' + tab.url
       // send text to browser content message listener
       chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     }
