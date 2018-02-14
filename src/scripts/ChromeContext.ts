@@ -8,11 +8,9 @@ import { } from '@types/chrome'
 class ChromeContext {
   constructor() {
     // Set up context menu tree at install time.
-    chrome.runtime.onInstalled.addListener(() => {
-      // Create copy to clipboard menu.
-      chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink' })
-    })
+    chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink' })
     chrome.contextMenus.onClicked.addListener(this.onClickHandler)
+
   }
 
   // The onClicked callback function.
@@ -22,7 +20,8 @@ class ChromeContext {
 
     if (info.menuItemId === 'slink') {
       console.log('slink clicked')
-      jk.copyStringToClipboard('Your opinion have just become mine.')
+      chrome.tabs.sendMessage(tab.id, {"url": info.linkUrl})
+      // jk.copyStringToClipboard('Your opinion have just become mine.')
     }
   }
 }

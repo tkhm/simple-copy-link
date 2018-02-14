@@ -12,10 +12,18 @@
       "38": "icon-38.png"
     }
   },
-  "permissions": ["contextMenus"],
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "clipboardWrite"
+  ],
   "background": {
     "persistent": false,
     "scripts": ["simple-copy-link.js"]
   },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["clipboard-sender.js"]
+  }],
   "manifest_version": 2
 }
