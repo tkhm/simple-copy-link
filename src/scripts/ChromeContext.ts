@@ -8,7 +8,7 @@ import { } from '@types/chrome'
 class ChromeContext {
   constructor() {
     // Set up context menu tree at install time.
-    chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink' })
+    chrome.contextMenus.create({ 'title': 'Copy Title and Link', 'id': 'slink', 'contexts': ['all'] })
     chrome.contextMenus.onClicked.addListener(this.onClickHandler)
   }
 
@@ -19,8 +19,9 @@ class ChromeContext {
 
     if (info.menuItemId === 'slink') {
       console.log('slink clicked')
+      const titleAndUrl = '[' + tab.title + '](' + tab.url + ')'
       // send text to browser content message listener
-      chrome.tabs.sendMessage(tab.id, {"text": info.linkUrl})
+      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     }
   }
 }
