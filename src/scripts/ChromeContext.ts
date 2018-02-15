@@ -19,24 +19,23 @@ class ChromeContext {
     jk.reportProgress(64)
 
     if (info.menuItemId === 'slink_md') {
+      let titleAndUrl
       if(info.selectionText == null) {
-        const titleAndUrl = '[' + tab.title + '](' + tab.url + ')'
-        // send text to browser content message listener
-        chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
+        titleAndUrl = '[' + tab.title + '](' + tab.url + ')'
       } else {
-        const titleAndUrl = '[' + info.selectionText + '](' + tab.url + ')'
-        chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
+        titleAndUrl = '[' + info.selectionText + '](' + tab.url + ')'
       }
-
+      // send text to browser content message listener
+      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     } else if (info.menuItemId === 'slink_txt') {
+      let titleAndUrl
       if(info.selectionText == null) {
-        const titleAndUrl = tab.title + ' ' + tab.url
-        // send text to browser content message listener
-        chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
+        titleAndUrl = tab.title + ' ' + tab.url
       } else {
-        const titleAndUrl = info.selectionText + ' ' + tab.url
-        chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
+        titleAndUrl = info.selectionText + ' ' + tab.url
       }
+      // send text to browser content message listener
+      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     }
   }
 }
