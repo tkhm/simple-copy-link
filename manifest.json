@@ -25,5 +25,19 @@
     "matches": ["<all_urls>"],
     "js": ["content.js"]
   }],
+  "commands": {
+    "copy-as-plaintext": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Copy tabTitle/tabUrl as Plaintext"
+    },
+    "copy-as-markdown": {
+      "suggested_key": {
+        "default": "Alt+M"
+      },
+      "description": "Copy tabTitle/tabUrl as Markdown"
+    }
+  },
   "manifest_version": 2
 }
