@@ -1,6 +1,6 @@
 {
   "name": "simple-copy-link",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "very simple copy link web extension",
   "main": "src/app.js",
   "scripts": {
