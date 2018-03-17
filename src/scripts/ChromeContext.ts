@@ -11,6 +11,7 @@ class ChromeContext {
     chrome.contextMenus.create({ 'title': 'Copy as Markdown', 'id': 'slink_md', 'contexts': ['all'] })
     chrome.contextMenus.create({ 'title': 'Copy as Plaintext', 'id': 'slink_txt', 'contexts': ['all'] })
     chrome.contextMenus.onClicked.addListener(this.onClickHandler)
+    chrome.commands.onCommand.addListener(this.onCommandHandler)
   }
 
   // The onClicked callback function.
@@ -31,6 +32,18 @@ class ChromeContext {
       // send text to browser content message listener
       chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     }
+  }
+
+  public onCommandHandler(command) {
+    function sendTabInfo(tabs){
+      if(command === "copy-as-plaintext"){
+        const titleAndUrl = tabs[0].title + ' ' + tabs[0].url
+      }else if(command === "copy-as-markdown"){
+        const titleAndUrl = '[' + tabs[0].title + '](' + tabs[0].url + ')'
+      }
+      chrome.tabs.sendMessage(tabs[0].id, { text: titleAndUrl });
+    }
+    chrome.tabs.query({active: true, currentWindow: true}, sendTabInfo)
   }
 }
 
