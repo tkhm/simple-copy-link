@@ -1,7 +1,7 @@
 {
   "name": "SLink - Simple copy link",
-  "description": "Copy page link and title, so simple!",
-  "version": "1.0.1",
+  "description": "Copy page link and title to clipboard, so simple!",
+  "version": "1.0.2",
   "icons": {
     "48": "icon.png",
     "96": "icon@2x.png"
