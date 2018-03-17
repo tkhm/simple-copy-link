@@ -38,3 +38,11 @@ yarn lint # call tslint
 https://developer.chrome.com/extensions/samples
 
 https://developer.chrome.com/extensions/devguide
+
+# Release
+
+1. Create release file with `yarn release`
+2. Make zip file for release with `cd dist; zip dist.zip ./*`
+3. Go to upload page and submit dist.zip [Upload Add-on :: SLink - Simple copy link :: Add-ons for Firefox](https://addons.mozilla.org/en-US/developers/addon/slink-simple-copy-link/versions/submit/)
+
+

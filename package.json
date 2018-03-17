@@ -1,6 +1,6 @@
 {
   "name": "simple-copy-link",
-  "version": "1.0.0",
+  "version": "0.2",
   "description": "very simple copy link web extension",
   "main": "src/app.js",
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "author": "PushMe Studio",
   "license": "UNLICENSED",
+  "private": "true",
   "bugs": {
     "url": "https://gitlab.com/pushmestudio/simple-copy-link/issues"
   },
