@@ -43,6 +43,6 @@ https://developer.chrome.com/extensions/devguide
 
 1. Create release file with `yarn release`
 2. Make zip file for release with `cd dist; zip dist.zip ./*`
-3. Go to upload page and submit dist.zip [Upload Add-on :: SLink - Simple copy link :: Add-ons for Firefox](https://addons.mozilla.org/en-US/developers/addon/slink-simple-copy-link/versions/submit/)
-
+3. Go to upload page and submit dist.zip for Firefox [Upload Add-on :: SLink - Simple copy link :: Add-ons for Firefox](https://addons.mozilla.org/en-US/developers/addon/slink-simple-copy-link/versions/submit/)
+4. Go to upload page and submit dist.zip for Chrome [Developer Dashboard - Chrome Web Store](https://chrome.google.com/webstore/developer/dashboard/)
 
