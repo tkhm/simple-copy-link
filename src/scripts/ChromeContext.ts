@@ -1,5 +1,3 @@
-import Jk from './Jk'
-
 // preventing the compile error for typescript
 import { } from '@types/chrome'
 
@@ -16,32 +14,29 @@ class ChromeContext {
 
   // The onClicked callback function.
   public onClickHandler(info, tab) {
-    const jk = new Jk()
-    jk.reportProgress(64)
-
+    let titleAndUrl = ''
     if (info.menuItemId === 'slink_md') {
-      const titleAndUrl = info.selectionText == null 
+      titleAndUrl = info.selectionText == null 
                       ? '[' + tab.title + '](' + tab.url + ')'
                       : '[' + info.selectionText + '](' + tab.url + ')'
-      // send text to browser content message listener
-      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     } else if (info.menuItemId === 'slink_txt') {
-      const titleAndUrl = info.selectionText == null
+      titleAndUrl = info.selectionText == null
                         ? tab.title + ' ' + tab.url
                         : info.selectionText + ' ' + tab.url
-      // send text to browser content message listener
-      chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
     }
+    // send text to browser content message listener
+    chrome.tabs.sendMessage(tab.id, {text: titleAndUrl})
   }
 
   public onCommandHandler(command) {
     function sendTabInfo(tabs){
+      let titleAndUrl = ''
       if(command === "copy-as-plaintext"){
-        const titleAndUrl = tabs[0].title + ' ' + tabs[0].url
+        titleAndUrl = tabs[0].title + ' ' + tabs[0].url
       }else if(command === "copy-as-markdown"){
-        const titleAndUrl = '[' + tabs[0].title + '](' + tabs[0].url + ')'
+        titleAndUrl = '[' + tabs[0].title + '](' + tabs[0].url + ')'
       }
-      chrome.tabs.sendMessage(tabs[0].id, { text: titleAndUrl });
+      chrome.tabs.sendMessage(tabs[0].id, { text: titleAndUrl })
     }
     chrome.tabs.query({active: true, currentWindow: true}, sendTabInfo)
   }
