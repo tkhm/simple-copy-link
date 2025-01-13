@@ -1,43 +1,39 @@
 {
   "name": "SLink - Simple copy link",
   "description": "Copy page link and title to clipboard, so simple!",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "icons": {
-    "48": "icon.png",
-    "96": "icon@2x.png"
+    "48": "img/icon.png",
+    "96": "img/icon@2x.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
-      "19": "icon-19.png",
-      "38": "icon-38.png"
+      "19": "img/icon-19.png",
+      "38": "img/icon-38.png"
     }
   },
   "permissions": [
     "contextMenus",
     "activeTab",
-    "clipboardWrite"
+    "scripting"
   ],
   "background": {
-    "persistent": false,
-    "scripts": ["background.js"]
+    "service_worker": "src/background.js",
+    "type": "module"
   },
-  "content_scripts": [{
-    "matches": ["<all_urls>"],
-    "js": ["content.js"]
-  }],
   "commands": {
-    "copy-as-plaintext": {
-      "suggested_key": {
-        "default": "Alt+P"
-      },
-      "description": "Copy tabTitle/tabUrl as Plaintext"
-    },
-    "copy-as-markdown": {
+    "copy_as_markdown": {
       "suggested_key": {
         "default": "Alt+M"
       },
-      "description": "Copy tabTitle/tabUrl as Markdown"
+      "description": "Copy Tab Title / Tab URL as Markdown"
+    },
+    "copy_as_plaintext": {
+      "suggested_key": {
+        "default": "Alt+P"
+      },
+      "description": "Copy Tab Title / Tab URL as Plaintext"
     }
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
