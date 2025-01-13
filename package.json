@@ -1,31 +1,23 @@
 {
   "name": "simple-copy-link",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "very simple copy link web extension",
-  "main": "src/app.js",
   "scripts": {
-    "lint": "tslint src/scripts/*",
-    "build": "parcel build --public-url ./ --no-minify src/background.js && parcel build --public-url ./ --no-minify src/content.js && cp manifest.json dist/ && cp icon*.png dist/",
-    "release": "yarn lint && parcel build --public-url ./ src/background.js && parcel build --public-url ./ src/content.js && cp manifest.json dist/ && cp icon*.png dist/",
+    "build": "parcel build --no-optimize manifest.json",
+    "clean": "rm -rf dist/ .parcel-cache",
+    "release": "yarn clean && parcel build manifest.json",
+    "report": "parcel build manifest.json --reporter @parcel/reporter-bundle-analyzer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/pushmestudio/simple-copy-link.git"
-  },
-  "author": "PushMe Studio",
-  "license": "UNLICENSED",
+  "repository": "https://github.com/tkhm/simple-copy-link.git",
+  "author": "tkhm",
+  "license": "MIT",
   "private": true,
-  "bugs": {
-    "url": "https://gitlab.com/pushmestudio/simple-copy-link/issues"
-  },
-  "homepage": "https://gitlab.com/pushmestudio/simple-copy-link#README",
   "devDependencies": {
-    "@types/chrome": "^0.0.59",
-    "parcel-bundler": "^1.4.1",
-    "tslint": "^5.9.1",
-    "tslint-config-prettier": "^1.6.0",
-    "typescript": "^2.6.2"
+    "@parcel/config-webextension": "^2.13.0",
+    "@parcel/reporter-bundle-analyzer": "^2.13.0",
+    "@types/chrome": "^0.0.293",
+    "parcel": "^2.13.0"
   },
   "dependencies": {}
 }

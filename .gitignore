@@ -3,7 +3,8 @@ node_modules/
 
 # Build
 dist/
-.cache/
+.parcel-cache/
+parcel-bundle-reports/
 
 # Log
 npm-debug.log*
